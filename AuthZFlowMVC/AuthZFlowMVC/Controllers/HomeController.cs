@@ -1,33 +1,24 @@
-﻿using DataProtectionInServer.Models;
-using DataProtectionInServer.Security;
+﻿using AuthZFlowMVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace DataProtectionInServer.Controllers
+namespace AuthZFlowMVC.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private IHostEnvironment _host;
 
-        public HomeController(ILogger<HomeController> logger, IHostEnvironment host)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _host = host;
         }
 
         public IActionResult Index()
         {
-            string key = "Aman bu ifade çok gizli";
-            DataProtector dataProtector = new DataProtector(_host.ContentRootPath + "\\crypted.halkbank");
-            int length = dataProtector.EncryptData(key);
-            string decrypted = dataProtector.DecryptData(length);
-
-            ViewBag.Data = decrypted;
-
             return View();
         }
-
+        [Authorize(Roles = "admin,editor")]
         public IActionResult Privacy()
         {
             return View();
