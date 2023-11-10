@@ -58,5 +58,21 @@ namespace AuthZFlowMVC.Controllers
         {
             return View();
         }
+
+        public IActionResult CreateUser()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateUser(CreateUserRequest request)
+        {
+            if (ModelState.IsValid)
+            {
+                var hashed = new PasswordHasher().GetHashedPassword(request.Password);
+                ViewBag.Hashed = hashed;
+
+            }
+            return View();
+        }
     }
 }
