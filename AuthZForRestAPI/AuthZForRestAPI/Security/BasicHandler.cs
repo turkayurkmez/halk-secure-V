@@ -21,12 +21,13 @@ namespace AuthZForRestAPI.Security
                 return Task.FromResult(AuthenticateResult.NoResult());
             }
 
+            //2. istekteki Authorization formatı doğru mu?
             if (!AuthenticationHeaderValue.TryParse(Request.Headers["Authorization"], out AuthenticationHeaderValue headerValue))
             {
                 return Task.FromResult(AuthenticateResult.NoResult());
 
             }
-
+            //3. Gelen istekteki authorization Basic mi?
             if (!headerValue.Scheme.Equals("Basic", StringComparison.OrdinalIgnoreCase))
             {
                 return Task.FromResult(AuthenticateResult.NoResult());

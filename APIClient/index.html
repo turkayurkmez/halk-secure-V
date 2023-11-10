@@ -7,13 +7,14 @@
 </head>
 <body>
     
+    <iframe src="https://www.trendyol.com/" style="width: 100%; height: 100%;"></iframe>
     <script>
         $(document).ready(
             $('#btn').click(function(){
                 $.ajax({
                     url:'http://',
                     headers:{
-                        Authorization:'Basic '+ btoa('abc:123')
+                        Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'
                     }
                 })
             })

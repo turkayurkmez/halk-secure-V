@@ -1,0 +1,15 @@
+  Güvenlik için paranoya rehberi:
+
+1. Tüm giriş yapılabilecek (Query String'ler dahil) inputlara paronayakça davran 
+2. Http request'de bulunan kullanıcıya paronayakça davran
+3. Uygulamanın koştuğu sunucuya paronayakça davran
+4. HTML sayfasından veya Mobil uygulamadan gönderilecek verilere paronayakça davran
+5. Kimlik oluşturma, yetkilendirme ve onay süreçlerine paronayakça davran
+6. İstemciye gönderdiğin yanıtlarda paronayakça davran
+7. Yetki verirken, paronayakça davran
+8. Kim ne halt yemiş, her şeyi logla. Hem db'de logla hem de dokümanda logla.
+
+Notlar:
+  Son teknoloji Frameworklere (LTS) kesinlikle biraz daha güvenin. 
+Sürdürülebilirlik
+  CI/CD (Devops) -> Unit Tests 
